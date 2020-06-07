@@ -1,4 +1,7 @@
 var __PS_MV_REG;
+/* (DEFMACRO CONSOLE-LOG (&BODY FORMS) `(CHAIN CONSOLE (LOG ,@FORMS))) */
+
+var __PS_MV_REG;
 /* (IMPORT DEFAULT ASDF NAMES (FOO-BAR FOO-BAZ) PATH ./test-import.mjs) */
 import asdf from "./test-import.mjs";
 import { fooBar, fooBaz, } from "./test-import.mjs";
@@ -24,6 +27,8 @@ function poop() {
     element.textContent = 'Hello world! ' + asdf.a + fooBar + fooBaz;
     return document.body.appendChild(element);
 })();
+/* (CONSOLE-LOG test) */
+console.log('test');
 /* (EXPORT NAMES (MOO-COW COW-MOO) DEFAULT POOP) */
 export { mooCow, cowMoo, };
 export default poop;

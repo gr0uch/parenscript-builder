@@ -12,6 +12,8 @@
 	(+ "Hello world! " (@ asdf a) foo-bar foo-baz))
   (chain document body (append-child element)))
 
+(console-log "test")
+
 (export
  :names (moo-cow cow-moo)
  :default poop)

@@ -13,7 +13,7 @@ Somewhat based on [sigil](https://github.com/burtonsamograd/sigil).
 ## Usage
 
 ```
-psbuild <filename.lisp>
+psbuild <filename1.lisp> ... <filenameN.lisp>
 ```
 
 Output is written to `stdout`.

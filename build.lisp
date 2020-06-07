@@ -35,7 +35,7 @@
 (defun ps2js (f)
   (in-package :ps)
   ;; Set internal variable
-  (format t "~A~%" (ps:ps (defvar *__PS_MV_REG*)))
+  (format t "~A~%" (ps:ps (defvar *__ps_mv_reg*)))
   (do
    ((form (read f nil) (read f nil)))
    ((not form))
@@ -44,14 +44,14 @@
 
 (defun main (argv)
   (pop argv)
-  (let* ((arg (pop argv))
-	 (probe-results (probe-file arg)))
-    (when probe-results
-      (with-open-file
-       (f arg)
-       (handler-bind
-	   ((error
-	     (lambda (e) 
-	       (format *error-output* "~A~%" e)
-	       (sb-ext:exit :code 1))))
-	 (ps2js f))))))
+  (loop for arg in argv do
+	(let ((probe-results (probe-file arg)))
+	  (when probe-results
+	    (with-open-file
+	     (f arg)
+	     (handler-bind
+		 ((error
+		   (lambda (e)
+		     (format *error-output* "~A~%" e)
+		     (sb-ext:exit :code 1))))
+	       (ps2js f)))))))
