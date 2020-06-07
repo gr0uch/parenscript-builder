@@ -24,7 +24,7 @@ To import an ES Module:
 ```
 (import
   :default <name of variable>
-  :names (list <names of variables>)
+  :names (<names of variables>)
   :path "./<path to module>.mjs")
 ```
 
@@ -32,9 +32,9 @@ To export an ES Module:
 ```
 (export
   :default <name of variable>
-  :names (list <names of variables>))
+  :names (<names of variables>))
 ```
 
-### License
+## License
 
 [WTFPL v2](http://www.wtfpl.net/)
