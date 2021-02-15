@@ -1,6 +1,7 @@
 (import
  :default asdf
- :names (foo-bar foo-baz)
+ :names (foo-bar as bar
+                 foo-baz)
  :path "./test-import.mjs")
 
 (defun moo-cow () "COW")
@@ -9,11 +10,13 @@
 
 (let ((element (chain document (create-element "h1"))))
   (setf (@ element text-content)
-	(+ "Hello world! " (@ asdf a) foo-bar foo-baz))
+	(+ "Hello world! " (@ asdf a) bar foo-baz))
   (chain document body (append-child element)))
 
 (console-log "test")
 
 (export
- :names (moo-cow cow-moo)
+ :names
+ (moo-cow as moo
+          cow-moo)
  :default poop)
