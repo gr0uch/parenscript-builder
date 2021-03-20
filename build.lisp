@@ -14,10 +14,13 @@
     for i from 0 to (length names)
     for name in names
     do
-    (write-string (concatenate 'string  " " (ps:symbol-to-js-string name)))
-    (when (not (or (string= (symbol-name name) "AS")
-                   (string= (symbol-name (nth (+ i 1) names)) "AS")))
-         (write-string ",")))
+    (if (atom name)
+        (write-string (concatenate 'string  " " (ps:symbol-to-js-string name)))
+      (write-string (concatenate 'string  " "
+                                 (ps:symbol-to-js-string (car name))
+                                 " as "
+                                 (ps:symbol-to-js-string (car (cdr name))))))
+    (write-string ","))
    (write-string (concatenate 'string  " } from \"" path "\";"))
    (fresh-line))
  nil)
@@ -31,10 +34,13 @@
     for i from 0 to (length names)
     for name in names
     do
-    (write-string (concatenate 'string  " " (ps:symbol-to-js-string name)))
-    (when (not (or (string= (symbol-name name) "AS")
-                   (string= (symbol-name (nth (+ i 1) names)) "AS")))
-         (write-string ",")))
+    (if (atom name)
+        (write-string (concatenate 'string  " " (ps:symbol-to-js-string name)))
+      (write-string (concatenate 'string  " "
+                                 (ps:symbol-to-js-string (car name))
+                                 " as "
+                                 (ps:symbol-to-js-string (car (cdr name))))))
+    (write-string ","))
    (write-string " };")
    (fresh-line))
  (when default

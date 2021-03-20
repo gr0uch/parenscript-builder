@@ -1,7 +1,7 @@
 var __PS_MV_REG;
 /* (DEFMACRO CONSOLE-LOG (&BODY FORMS) `(CHAIN CONSOLE (LOG ,@FORMS))) */
 
-/* (IMPORT DEFAULT ASDF NAMES (FOO-BAR AS BAR FOO-BAZ) PATH ./test-import.mjs) */
+/* (IMPORT DEFAULT ASDF NAMES ((FOO-BAR BAR) FOO-BAZ) PATH ./test-import.mjs) */
 import asdf from "./test-import.mjs";
 import { fooBar as bar, fooBaz, } from "./test-import.mjs";
 
@@ -27,7 +27,7 @@ function poop() {
 })();
 /* (CONSOLE-LOG test) */
 console.log('test');
-/* (EXPORT NAMES (MOO-COW AS MOO COW-MOO) DEFAULT POOP) */
+/* (EXPORT NAMES ((MOO-COW MOO) COW-MOO) DEFAULT POOP) */
 export { mooCow as moo, cowMoo, };
 export default poop;
 

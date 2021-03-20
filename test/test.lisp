@@ -1,7 +1,7 @@
 (import
  :default asdf
- :names (foo-bar as bar
-                 foo-baz)
+ :names ((foo-bar bar)
+         foo-baz)
  :path "./test-import.mjs")
 
 (defun moo-cow () "COW")
@@ -17,6 +17,6 @@
 
 (export
  :names
- (moo-cow as moo
-          cow-moo)
+ ((moo-cow moo)
+  cow-moo)
  :default poop)
